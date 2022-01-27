@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>animations reference</title>
+        <style>
+            @keyframes grow {
+                from {
+                    width:30px;
+                }
+                to {
+                    width:90px;
+                }
+                
+            }
+            @-webkit-keyframes grow {
+                from {
+                    width:30px;
+                }
+                to {
+                    width:90px;
+                }
+                
+            }
+            #pic {
+                animation-name:grow;
+                animation-duration:3s;
+                -webkit-animation-name:grow;
+                -webkit-animation-duration:3s;
+            }
+            #word:hover {
+                font-size:150px;
+                transition:font-size 1s linear;
+            }
+        </style>
+    </head>
+    <body>
+    <h1 id="word">hello<span id="time">0</span></h1>
+    <img id="pic" src="https://www.kasandbox.org/programming-images/animals/cat.png">
+    <img id="animationFrame" src="https://www.kasandbox.org/programming-images/animals/butterfly.png">
+    <script>
+        //timer
+        var time = document.getElementById("time")
+        var countup = function() {
+            time.textContent = parseFloat(time.textContent) + 1;
+        };
+        window.setInterval(countup,1000);
+        //animationframe
+        var animationFrame = document.getElementById(animationFrame);
+        animationFrame.style.width = "30px";
+        var startTime = new Date().getTime();
+        
+        var grow = function() {
+            var currTime = new Date().getTime();
+            var newWidth = (30+(currTime - startTime)/1000) * 30;
+        animationFrame.style.width = newWidth + "px";
+        window.requestAnimationFrame(animationFrame)
+        };
+        
+        grow();
+    </script>
+    </body>
+</html>
